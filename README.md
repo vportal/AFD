@@ -13,11 +13,11 @@ This address is later copied to a pool memory allocation (tag: AfdL) using a mem
 
 The PoC bellow shows the kernel address provided from user-land (0xffffffdeadbeef01)
 
-![Image](/images/img3.png)
+![Image](/images/img4.png)
 
 The driver try to read from this invalid memory address leading in a BSOD:
 
-![Image](/images/img4.png)
+![Image](/images/img5.png)
 
 The value copied to the dst pointer in the memcpy operation is later passed to the tcpip.sys driver. I have not dig into what internal objects are affected and if it's possible to leak memory from userland calling APIs which could get data from this potential internal objects.
 
